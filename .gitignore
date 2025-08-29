@@ -1,0 +1,9 @@
+# build noise
+*.tgz
+.helm/
+# secrets
+secrets/**
+!secrets/.keep
+# local SOPS keys (do NOT commit private keys)
+*.agekey
+.sops.keys.txt

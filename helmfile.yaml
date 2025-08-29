@@ -1,0 +1,41 @@
+repositories:
+  - name: vaultwarden
+    url: https://guerzon.github.io/vaultwarden
+  - name: open-webui
+    url: https://helm.openwebui.com
+  - name: rubxkube
+    url: https://rubxkube.github.io/charts/
+
+releases:
+  - name: vaultwarden
+    namespace: vaultwarden
+    chart: vaultwarden/vaultwarden
+    version: 0.31.8
+    createNamespace: true
+    atomic: true
+    wait: true
+    values:
+      - values/common/storage-longhorn.yaml
+      - values/vaultwarden/base.yaml
+
+  - name: open-webui
+    namespace: open-webui
+    chart: open-webui/open-webui
+    version: 7.2.0
+    createNamespace: true
+    atomic: true
+    wait: true
+    values:
+      - values/common/storage-longhorn.yaml
+      - values/open-webui/base.yaml
+
+  - name: glance
+    namespace: glance
+    chart: rubxkube/glance
+    version: 0.1.5
+    createNamespace: true
+    atomic: true
+    wait: true
+    values:
+      - values/common/storage-longhorn.yaml
+      - values/glance/base.yaml

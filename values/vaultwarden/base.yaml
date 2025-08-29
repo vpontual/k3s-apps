@@ -1,0 +1,17 @@
+# Ingress via Traefik
+ingress:
+  enabled: true
+  class: 'traefik'
+  nginxIngressAnnotations: false
+  tls: false
+  hostname: 'vaultwarden.casarp.us'
+
+# Persistent data on Longhorn
+storage:
+  data:
+    name: 'vaultwarden-helm' # You can optionally specify the name, otherwise it will be auto-generated
+    size: '1Gi' # You can set the PVC size, though it may not be relevant if PVC already exists
+    class: 'longhorn' # Specify the storage class (use the storage class of your Longhorn PV)
+    path: '/data'
+    keepPvc: true # Ensures the PVC is retained even if the Helm release is deleted
+    accessMode: 'ReadWriteOnce'
