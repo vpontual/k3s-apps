@@ -3,8 +3,12 @@ repositories:
     url: https://guerzon.github.io/vaultwarden
   - name: open-webui
     url: https://helm.openwebui.com
-  - name: rubxkube
-    url: https://rubxkube.github.io/charts/
+  - name: alpineworks
+    url: https://charts.alpineworks.io
+
+helmDefaults:
+  wait: true
+  timeout: 900
 
 releases:
   - name: vaultwarden
@@ -13,7 +17,6 @@ releases:
     version: 0.31.8
     createNamespace: true
     atomic: true
-    wait: true
     values:
       - values/common/storage-longhorn.yaml
       - values/vaultwarden/base.yaml
@@ -24,18 +27,23 @@ releases:
     version: 7.2.0
     createNamespace: true
     atomic: true
-    wait: true
     values:
       - values/common/storage-longhorn.yaml
       - values/open-webui/base.yaml
 
   - name: glance
     namespace: glance
-    chart: rubxkube/glance
-    version: 0.1.5
+    chart: alpineworks/glance
+    version: 0.1.1
     createNamespace: true
-    atomic: true
-    wait: true
+    atomic: false
     values:
-      - values/common/storage-longhorn.yaml
       - values/glance/base.yaml
+
+  - name: glance-ingress
+    namespace: glance
+    chart: ./charts/ingress
+    needs:
+      - glance # ensure Service exists first
+    values:
+      - values/glance/ingress.yaml

@@ -1,20 +1,24 @@
 ingress:
-enabled: true
-class: 'traefik'
-host: ai.casarp.us
-tls: false
+  enabled: true
+  class: 'traefik'
+  host: ai.casarp.us
+  tls: false
 
 persistence:
   enabled: true
   size: 20Gi
   # -- Use existingClaim if you want to re-use an existing Open WebUI PVC instead of creating a new one
-  existingClaim: ''
+  existingClaim: '' # 'open-webui'
   # -- Subdirectory of Open WebUI PVC to mount. Useful if root directory is not empty.
   subPath: ''
   # -- If using multiple replicas, you must update accessModes to ReadWriteMany
   accessModes:
     - ReadWriteOnce
   storageClass: 'longhorn'
+
+image:
+  repository: ghcr.io/open-webui/open-webui
+  tag: '0.6.25'
 
 ollama:
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
