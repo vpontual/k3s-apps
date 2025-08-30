@@ -1,6 +1,0 @@
-host: glance.casarp.us
-className: traefik
-serviceName: glance
-servicePortName: http # the alpineworks Service uses a named port "http"
-tls:
-  enabled: false # you said TLS termination isn’t handled here
