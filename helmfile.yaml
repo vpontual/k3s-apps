@@ -3,8 +3,8 @@ repositories:
     url: https://guerzon.github.io/vaultwarden
   - name: open-webui
     url: https://helm.openwebui.com
-  - name: alpineworks
-    url: https://charts.alpineworks.io
+  - name: rphllc-glance
+    url: https://rphllc.github.io/helm/glance
 
 helmDefaults:
   wait: true
@@ -33,10 +33,10 @@ releases:
 
   - name: glance
     namespace: glance
-    chart: alpineworks/glance
-    version: 0.1.1
+    chart: rphllc-glance/glance
+    version: 0.1.6
     createNamespace: true
-    atomic: false
+    atomic: true
     values:
       - values/glance/base.yaml
 
