@@ -1,15 +1,11 @@
 ingress:
   enabled: true
-  annotations:
-    kubernetes.io/ingress.class: 'traefik'
-  host: glance.casarp.us
-  path: /
-  pathType: Prefix
-
-image:
-  repository: glanceapp/glance
-  pullPolicy: IfNotPresent
-  tag: v0.8.4
+  tls: false
+  hosts:
+    - host: glance.casarp.us
+      paths:
+        - path: /
+          pathType: Prefix
 
 config:
   data: |
