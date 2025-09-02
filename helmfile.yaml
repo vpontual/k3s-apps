@@ -34,7 +34,7 @@ releases:
   - name: glance
     namespace: glance
     chart: glance/glance
-    version: 0.1.8
+    version: 0.1.9
     createNamespace: true
     atomic: true
     values:
