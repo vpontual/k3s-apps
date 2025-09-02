@@ -10,32 +10,34 @@ helmDefaults:
   wait: true
   timeout: 900
 
+templates:
+  default: &default
+    createNamespace: true
+    atomic: true
+
 releases:
   - name: vaultwarden
+    <<: *default
     namespace: vaultwarden
     chart: vaultwarden/vaultwarden
     version: 0.31.8
-    createNamespace: true
-    atomic: true
     values:
       - values/common/storage-longhorn.yaml
       - values/vaultwarden/base.yaml
 
   - name: open-webui
+    <<: *default
     namespace: open-webui
     chart: open-webui/open-webui
     version: 7.2.0
-    createNamespace: true
-    atomic: true
     values:
       - values/common/storage-longhorn.yaml
       - values/open-webui/base.yaml
 
   - name: glance
+    <<: *default
     namespace: glance
     chart: glance/glance
     version: 0.1.9
-    createNamespace: true
-    atomic: true
     values:
       - values/glance/base.yaml
