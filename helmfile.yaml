@@ -3,7 +3,7 @@ repositories:
     url: https://guerzon.github.io/vaultwarden
   - name: open-webui
     url: https://helm.openwebui.com
-  - name: rphllc-glance
+  - name: glance
     url: https://rphllc.github.io/helm/glance
 
 helmDefaults:
