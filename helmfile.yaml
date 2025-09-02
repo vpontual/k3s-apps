@@ -4,7 +4,7 @@ repositories:
   - name: open-webui
     url: https://helm.openwebui.com
   - name: rphllc-glance
-    url: https://rphllc.github.io/helm/charts/glance
+    url: https://rphllc.github.io/helm/glance
 
 helmDefaults:
   wait: true
@@ -33,7 +33,7 @@ releases:
 
   - name: glance
     namespace: glance
-    chart: rphllc-glance/glance
+    chart: glance/glance
     version: 0.1.8
     createNamespace: true
     atomic: true
