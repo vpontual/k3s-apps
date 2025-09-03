@@ -5,6 +5,9 @@ repositories:
     url: https://helm.openwebui.com
   - name: glance
     url: https://rphllc.github.io/helm/glance
+  - name: glance-k8s
+    oci: true
+    url: oci://ghcr.io/lukasdietrich/glance-k8s/chart
 
 helmDefaults:
   wait: true
@@ -41,3 +44,13 @@ releases:
     version: 0.1.9
     values:
       - values/glance/base.yaml
+
+  - name: glance-k8s
+    <<: *default
+    createNamespace: false
+    namespace: glance
+    chart: oci://ghcr.io/lukasdietrich/glance-k8s/chart/glance-k8s
+    version: "v0.3.5"
+    values:
+      - values/glance-k8s/base.yaml
+  
