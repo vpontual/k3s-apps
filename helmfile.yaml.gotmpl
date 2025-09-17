@@ -1,3 +1,4 @@
+---
 repositories:
   - name: vaultwarden
     url: https://guerzon.github.io/vaultwarden
@@ -40,10 +41,13 @@ releases:
   - name: glance
     <<: *default
     namespace: glance
-    chart: glance/glance
-    version: 0.1.9
+    chart: ../helm/charts/glance
+    version: 0.1.17
     values:
       - values/glance/base.yaml
+    set:
+      - name: config.files.proxmox-widget
+        value: {{ readFile "values/glance/proxmox-widget.yaml" | quote }}
 
   - name: glance-k8s
     <<: *default
@@ -53,4 +57,3 @@ releases:
     version: "v0.3.5"
     values:
       - values/glance-k8s/base.yaml
-  

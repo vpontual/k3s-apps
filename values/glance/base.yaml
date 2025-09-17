@@ -7,9 +7,6 @@ ingress:
         - path: /
           pathType: Prefix
 
-
-
-
 config:
   data: |
     theme:
@@ -52,7 +49,7 @@ config:
                         check-url: http://homeassistant.home:8123
                         icon: di:home-assistant
                       - title: Proxmox
-                        url: https://10.0.154.210:8006
+                        url: https://proxmox.casarp.us
                         check-url: https://10.0.154.210:8006
                         allow-insecure: true
                         icon: di:proxmox
@@ -82,11 +79,13 @@ config:
                         allow-insecure: no
                         icon: di:vaultwarden-light
 
+                  - $include: proxmox-widget
+
                   - type: extension
                     url: http://glance-k8s/extension/nodes
                     allow-potentially-dangerous-html: true
                     cache: 1s
-
+                    
               - type: videos
                 style: grid-cards
                 collapse-after-rows: 3
