@@ -48,6 +48,8 @@ releases:
     set:
       - name: config.files.proxmox-widget
         value: {{ readFile "values/glance/proxmox-widget.yaml" | quote }}
+      - name: config.files.my-style
+        value: {{ readFile "values/glance/my-style.css" | quote }}
 
   - name: glance-k8s
     <<: *default

@@ -13,7 +13,7 @@ config:
       background-color: 50 1 6
       primary-color: 24 97 58
       negative-color: 209 88 54
-      custom-css-file: /static/93e69e8f19/my-style.css
+      custom-css-file: my-style
     pages:
       - name: Home
         hide-desktop-navigation: true

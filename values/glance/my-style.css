@@ -1,0 +1,17 @@
+.widget-type-bookmarks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.widget-type-bookmarks li {
+  margin: 10px;
+}
+
+.widget-type-bookmarks a {
+  text-decoration: none;
+  color: inherit; /* Adjust color as needed */
+}
