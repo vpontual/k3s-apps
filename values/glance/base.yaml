@@ -78,6 +78,11 @@ config:
                         url: https://vaultwarden.casarp.us
                         allow-insecure: no
                         icon: di:vaultwarden-light
+                      - title: Open-webui
+                        url: https://ai.casarp.us
+                        allow-insecure: no
+                        icon: di:open-webui-light
+
 
                   - $include: proxmox-widget
 

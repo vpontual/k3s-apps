@@ -42,13 +42,13 @@ releases:
     <<: *default
     namespace: glance
     chart: ../helm/charts/glance
-    version: 0.1.19
+    version: 0.1.20
     values:
       - values/glance/base.yaml
     set:
       - name: config.files.proxmox-widget
         value: {{ readFile "values/glance/proxmox-widget.yaml" | quote }}
-      - name: config.files.my-style
+      - name: assets.files.my-style
         value: {{ readFile "values/glance/my-style.css" | quote }}
 
   - name: glance-k8s

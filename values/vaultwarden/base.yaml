@@ -25,4 +25,5 @@ image:
 
 adminToken:
   existingSecret: "vaultwarden-secret"
-  existingSecretKey: "ADMIN_TOKEN"                                                                                                                                                  │
+  existingSecretKey: "ADMIN_TOKEN"
+  
