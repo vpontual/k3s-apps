@@ -84,12 +84,12 @@ config:
                         icon: di:open-webui-light
 
 
-                  - $include: proxmox-widget
+              - $include: proxmox-widget
 
-                  - type: extension
-                    url: http://glance-k8s/extension/nodes
-                    allow-potentially-dangerous-html: true
-                    cache: 1s
+              - type: extension
+                url: http://glance-k8s/extension/nodes
+                allow-potentially-dangerous-html: true
+                cache: 1s
                     
               - type: videos
                 style: grid-cards

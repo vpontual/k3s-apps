@@ -18,7 +18,7 @@ persistence:
 
 image:
   repository: ghcr.io/open-webui/open-webui
-  tag: '0.6.26'
+  # tag: '0.6.30'
 
 ollama:
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure

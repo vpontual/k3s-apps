@@ -9,6 +9,7 @@ Before you begin, ensure you have the following tools installed and configured:
 *   `kubectl`: Configured to connect to your K3s cluster.
 *   `helm`: The Kubernetes package manager.
 *   `helmfile`: The declarative spec for deploying Helm charts.
+*.  
 
 ## 1. Secret Configuration
 
