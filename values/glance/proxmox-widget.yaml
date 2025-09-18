@@ -2,11 +2,11 @@
   title: PROXMOX-VE NODES
   title-url: https://proxmox.casarp.us
   cache: 1m
-  url: https://10.0.154.210/api2/json/nodes
+  url: https://proxmox.casarp.us/api2/json/nodes
   allow-insecure: true
   headers:
     Accept: application/json
-    Authorization: api@pam!glance=aff74228-a873-452e-bca6-3c175d8877d
+    Authorization: PVEAPIToken=api@pam!glance=049a1e56-eace-4ea7-9321-b662d05d33fe
   options:
     uptime-mode: duration  # relative | duration
     collapse-after: 5
@@ -21,6 +21,7 @@
           <div class="server-info">
               <div class="server-details">
                   <div class="server-name color-highlight size-h3 text-truncate">
+   
                     {{ .String "node" }}
                   </div>
                   <div>
