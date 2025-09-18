@@ -12,7 +12,9 @@ Before you begin, ensure you have the following tools installed and configured:
 
 ## 1. Secret Configuration
 
-Some applications require Kubernetes secrets to be created **before** you deploy them. Please create the following secrets.
+TO DO 
+ - CURRENTLY SECRETS ARE HARDCODED IN THE CONFIGURATION FILES
+ - THE INSTRUCTIONS FOR THE SECRETS BELOW DO NOT WORK YET
 
 ### Vaultwarden Admin Token
 
@@ -47,7 +49,7 @@ You can deploy all services at once or one by one.
 To deploy all applications defined in `helmfile.yaml`, run:
 
 ```bash
-helmfile sync
+helmfile apply
 ```
 
 ### Deploy a Single Service
@@ -56,17 +58,17 @@ To deploy a specific service, use the `-l` (selector) flag with the name of the 
 
 *   **Vaultwarden**
     ```bash
-    helmfile sync -l name=vaultwarden
+    helmfile apply -l name=vaultwarden
     ```
 
 *   **Open WebUI**
     ```bash
-    helmfile sync -l name=open-webui
+    helmfile apply -l name=open-webui
     ```
 
 *   **Glance**
     ```bash
-    helmfile sync -l name=glance
+    helmfile apply -l name=glance
     ```
 
 ## 3. Configuration Options
