@@ -60,7 +60,7 @@ If you are updating your custom configmap, first delete the existing one with
 kubectl delete configmap coredns-custom --namespace=kube-system 
 ```
 
-then execute
+Make sure you are in the K3S_DNS_config folder, then execute
 
 ```bash
 kubectl create configmap coredns-custom --namespace=kube-system \
