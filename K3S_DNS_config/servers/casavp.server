@@ -1,0 +1,6 @@
+casavp.com:53 {
+    errors
+    cache 30
+    rewrite name regex (.*)\.casavp\.com casavp.com
+    forward . 10.0.153.1
+}
