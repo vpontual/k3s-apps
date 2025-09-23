@@ -1,27 +1,31 @@
 ---
 repositories:
+  - name: rphllc
+    url: https://rphllc.github.io/helm/
   - name: vaultwarden
     url: https://guerzon.github.io/vaultwarden
   - name: open-webui
     url: https://helm.openwebui.com
-  - name: glance
-    url: https://rphllc.github.io/helm/glance
   - name: glance-k8s
     oci: true
     url: oci://ghcr.io/lukasdietrich/glance-k8s/chart
 
 helmDefaults:
+  atomic: true
   wait: true
   timeout: 900
 
-templates:
-  default: &default
-    createNamespace: true
-    atomic: true
-
 releases:
+  - name: coredns-custom-config
+    createNamespace: false
+    namespace: kube-system
+    chart: rphllc/coredns-custom-config
+    version: 0.1.1
+    values:
+      - values/coredns/base.yaml
+
   - name: vaultwarden
-    <<: *default
+    createNamespace: true
     namespace: vaultwarden
     chart: vaultwarden/vaultwarden
     version: 0.31.8
@@ -30,7 +34,7 @@ releases:
       - values/vaultwarden/base.yaml
 
   - name: open-webui
-    <<: *default
+    createNamespace: true
     namespace: open-webui
     chart: open-webui/open-webui
     version: 8.6.0
@@ -39,9 +43,9 @@ releases:
       - values/open-webui/base.yaml
 
   - name: glance
-    <<: *default
+    createNamespace: true
     namespace: glance
-    chart: glance/glance
+    chart: rphllc/glance
     version: 0.1.21
     values:
       - values/glance/base.yaml
@@ -52,7 +56,6 @@ releases:
         value: {{ readFile "values/glance/my-style.css" | quote }}
 
   - name: glance-k8s
-    <<: *default
     createNamespace: false
     namespace: glance
     chart: oci://ghcr.io/lukasdietrich/glance-k8s/chart/glance-k8s

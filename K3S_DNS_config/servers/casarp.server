@@ -1,6 +1,0 @@
-casarp.us:53 {
-    errors
-    cache 30
-    rewrite name regex (.*)\.casarp\.us casarp.us
-    forward . 10.0.154.1
-}

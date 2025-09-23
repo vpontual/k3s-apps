@@ -46,15 +46,12 @@ config:
                     sites:
                       - title: Home Assistant
                         url: https://homeassistant.casarp.us
-                        check-url: http://homeassistant.casarp.us 
-                        allow-insecure: true
                         icon: di:home-assistant
                       - title: Proxmox
                         url: https://proxmox.casarp.us
                         icon: di:proxmox
                       - title: BlueIris
                         url: https://cameras.casarp.us
-                        check-url: https://cameras.casarp.us
                         icon: di:blue-iris.png
                       - title: Synology
                         url: https://synology.home:5001
@@ -67,16 +64,13 @@ config:
                         icon: di:truenas
                       - title: pfSense
                         url: https://10.0.154.1:10443
-                        check-url: https://10.0.154.1:10443
                         allow-insecure: true
                         icon: di:pfsense
                       - title: VaultWarden
                         url: https://vaultwarden.casarp.us
-                        allow-insecure: no
                         icon: di:vaultwarden-light
                       - title: Open-webui
                         url: https://ai.casarp.us
-                        allow-insecure: no
                         icon: di:open-webui-light
 
 

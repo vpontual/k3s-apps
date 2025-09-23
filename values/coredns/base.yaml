@@ -1,0 +1,17 @@
+customServers:
+  - filename: "casarp.server"
+    content: |
+      casarp.us:53 {
+          errors
+          cache 30
+          rewrite name regex (.*)\.casarp\.us casarp.us
+          forward . 10.0.154.1
+      }
+  - filename: "casavp.server"
+    content: |
+      casavp.com:53 {
+          errors
+          cache 30
+          rewrite name regex (.*)\.casavp\.com casavp.com
+          forward . 10.0.153.1
+      }
