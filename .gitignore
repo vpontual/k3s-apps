@@ -7,3 +7,6 @@ secrets/**
 # local SOPS keys (do NOT commit private keys)
 *.agekey
 .sops.keys.txt
+
+# local overrides
+**/override.yaml

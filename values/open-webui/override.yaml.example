@@ -1,0 +1,6 @@
+# This file is for user-specific overrides.
+# Copy this file to override.yaml and add your custom values.
+# override.yaml is ignored by git, so your changes won't be overwritten.
+
+# For example:
+# replicaCount: 2

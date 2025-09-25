@@ -1,0 +1,23 @@
+# ----- Uptime Kuma → Glance (custom-api widget) -----
+- type: custom-api
+  title: Uptime
+  cache: 5m                     # Kuma status pages refresh about every 5 minutes
+  allow-insecure: false         # set true if your Kuma uses a self-signed cert
+  url: https://uptime-kuma.casarp.us/api/status-page/default
+  # Optional: if your Kuma is on HTTP or a non-default port, change the URL accordingly.
+  # Example: http://kuma.local:3001/api/status-page/default
+  template: |
+    {{/* Show pinned incident, if any */}}
+    {{ if .JSON.String "incident.title" }}
+    <b>Incident:</b> {{ .JSON.String "incident.title" }}
+    {{ end }}
+
+    {{/* Iterate public groups */}}
+    {{ range .JSON.Array "publicGroupList" }}
+    <b>{{ .String "name" }}</b>
+    {{ range .Array "monitorList" }}
+      {{ $s := .Int "status" }}{{/* 0=DOWN, 1=UP, 2=PENDING, 3=MAINTENANCE */}}
+      {{ if eq $s 1 }}✅{{ else if eq $s 3 }}🛠️{{ else if eq $s 2 }}…{{ else }}❌{{ end }}
+      {{ .String "name" }}
+    {{ end }}
+    {{ end }}

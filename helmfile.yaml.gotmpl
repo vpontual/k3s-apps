@@ -23,6 +23,7 @@ releases:
     version: 0.1.1
     values:
       - values/coredns/base.yaml
+      - values/coredns/override.yaml
 
   - name: vaultwarden
     createNamespace: true
@@ -32,6 +33,7 @@ releases:
     values:
       - values/common/storage-longhorn.yaml
       - values/vaultwarden/base.yaml
+      - values/vaultwarden/override.yaml
 
   - name: open-webui
     createNamespace: true
@@ -41,6 +43,7 @@ releases:
     values:
       - values/common/storage-longhorn.yaml
       - values/open-webui/base.yaml
+      - values/open-webui/override.yaml
 
   - name: glance
     createNamespace: true
@@ -49,6 +52,7 @@ releases:
     version: 0.1.21
     values:
       - values/glance/base.yaml
+      - values/glance/override.yaml
     set:
       - name: config.files.proxmox-widget
         value: {{ readFile "values/glance/proxmox-widget.yaml" | quote }}
@@ -62,3 +66,4 @@ releases:
     version: "v0.3.5"
     values:
       - values/glance-k8s/base.yaml
+      - values/glance-k8s/override.yaml

@@ -80,7 +80,12 @@ config:
                 url: http://glance-k8s/extension/nodes
                 allow-potentially-dangerous-html: true
                 cache: 1s
-                    
+
+              - type: extension
+                url: https://cameras.casarp.us
+                allow-potentially-dangerous-html: true
+                cache: 1s
+
               - type: videos
                 style: grid-cards
                 collapse-after-rows: 3
