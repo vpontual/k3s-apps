@@ -1,9 +1,9 @@
 ## ref: https://hub.docker.com/r/library/nextcloud/tags/
-image:
-  registry: docker.io
-  repository: library/nextcloud
-  flavor: apache
-  tag: 29.0.0-apache
+# image:
+#   registry: docker.io
+#   repository: library/nextcloud
+#   flavor: apache
+#   tag: 31.0.0-apache
 
 # CRITICAL: Since HAProxy handles SSL, K3s sees HTTP traffic.
 # This forces Nextcloud to treat connections as HTTPS to avoid broken CSS/JS.
