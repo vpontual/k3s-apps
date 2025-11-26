@@ -25,8 +25,8 @@ releases:
     version: 0.1.1
     values:
       - values/coredns/base.yaml
-      {{- if isFile "values/coredns/override.yaml" }}
-      - values/coredns/override.yaml
+      {{- if isFile "values/coredns/override2.yaml" }}
+      - values/coredns/override2.yaml
       {{- end }}
   
   - name: vaultwarden
@@ -37,8 +37,8 @@ releases:
     values:
       - values/common/storage-longhorn.yaml
       - values/vaultwarden/base.yaml
-      {{- if isFile "values/vaultwarden/override.yaml" }}
-      - values/vaultwarden/override.yaml
+      {{- if isFile "values/vaultwarden/override2.yaml" }}
+      - values/vaultwarden/override2.yaml
       {{- end }}
 
   - name: open-webui
@@ -49,8 +49,8 @@ releases:
     values:
       - values/common/storage-longhorn.yaml
       - values/open-webui/base.yaml
-      {{- if isFile "values/open-webui/override.yaml" }}
-      - values/open-webui/override.yaml
+      {{- if isFile "values/open-webui/override2.yaml" }}
+      - values/open-webui/override2.yaml
       {{- end }}
 
   - name: glance
@@ -60,8 +60,8 @@ releases:
     version: 0.1.21
     values:
       - values/glance/base.yaml
-      {{- if isFile "values/glance/override.yaml" }}
-      - values/glance/override.yaml
+      {{- if isFile "values/glance/override2.yaml" }}
+      - values/glance/override2.yaml
       {{- end }}
     set:
       {{- if isFile "values/glance/proxmox-widget.yaml" }}
@@ -80,8 +80,8 @@ releases:
     version: "v0.4.1"
     values:
       - values/glance-k8s/base.yaml
-      {{- if isFile "values/glance-k8s/override.yaml" }}
-      - values/glance-k8s/override.yaml
+      {{- if isFile "values/glance-k8s/override2.yaml" }}
+      - values/glance-k8s/override2.yaml
       {{- end }}
 
   - name: nextcloud
@@ -92,6 +92,6 @@ releases:
     values:
       - values/common/storage-longhorn.yaml
       - values/nextcloud/base.yaml
-      {{- if isFile "values/nextcloud/override.yaml" }}
-      - values/nextcloud/override.yaml
+      {{- if isFile "values/nextcloud/override2.yaml" }}
+      - values/nextcloud/override2.yaml
       {{- end }}
