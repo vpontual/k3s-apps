@@ -1,3 +1,10 @@
+## ref: https://hub.docker.com/r/library/nextcloud/tags/
+# image:
+#   registry: docker.io
+#   repository: library/nextcloud
+#   flavor: apache
+#   tag: 31.0.0-apache
+
 nextcloud:
   host: nextcloud.casavp.com
   username: vp
