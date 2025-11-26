@@ -1,24 +1,24 @@
 ingress:
   enabled: true
-  class: 'traefik'
-  host: ai.casarp.us
+  class: "traefik"
+  host: ai.casavp.com
   tls: false
 
 persistence:
   enabled: true
   size: 20Gi
   # -- Use existingClaim if you want to re-use an existing Open WebUI PVC instead of creating a new one
-  existingClaim: '' # 'open-webui'
+  # existingClaim: "open-webui"
   # -- Subdirectory of Open WebUI PVC to mount. Useful if root directory is not empty.
-  subPath: ''
+  subPath: ""
   # -- If using multiple replicas, you must update accessModes to ReadWriteMany
   accessModes:
     - ReadWriteOnce
-  storageClass: 'longhorn'
+  storageClass: "longhorn"
 
 image:
   repository: ghcr.io/open-webui/open-webui
-  tag: '0.6.26'
+  #tag: '0.6.26'
 
 ollama:
   # -- Automatically install Ollama Helm chart from https://otwld.github.io/ollama-helm/. Use [Helm Values](https://github.com/otwld/ollama-helm/#helm-values) to configure
@@ -45,21 +45,22 @@ pipelines:
   extraEnvVars: []
 
 # -- A list of Ollama API endpoints. These can be added in lieu of automatically installing the Ollama Helm chart, or in addition to it.
-ollamaUrls: [http://10.0.154.244:11434, http://10.0.154.245:11434]
+ollamaUrls: [http://10.0.154.234:11434, http://10.0.154.245:11434]
 
 # -- Env vars added to the Open WebUI deployment. Most up-to-date environment variables can be found here: https://docs.openwebui.com/getting-started/env-configuration/
+#extraEnvVars: []
 extraEnvVars:
-  # -- Default API key value for Pipelines. Should be updated in a production deployment, or be changed to the required API key if not using Pipelines
-  #- name: OPENAI_API_KEY
-  #  value: '0p3n-w3bu!'
-  # valueFrom:
-  #   secretKeyRef:
-  #     name: pipelines-api-key
-  #     key: api-key
-  - name: OPENAI_API_KEY
-    valueFrom:
-      secretKeyRef:
-        name: open-webui-secrets
-        key: openai-api-key
-  # - name: OLLAMA_DEBUG
-  #   value: "1"
+# -- Default API key value for Pipelines. Should be updated in a production deployment, or be changed to the required API key if not using Pipelines
+#- name: OPENAI_API_KEY
+#  value: '0p3n-w3bu!'
+# valueFrom:
+#   secretKeyRef:
+#     name: pipelines-api-key
+#     key: api-key
+#- name: OPENAI_API_KEY
+# valueFrom:
+#  secretKeyRef:
+#   name: open-webui-secrets
+#  key: openai-api-key
+# - name: OLLAMA_DEBUG
+#   value: "1"
