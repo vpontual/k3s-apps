@@ -4,8 +4,6 @@ repositories:
     url: https://rphllc.github.io/helm/
   - name: vaultwarden
     url: https://guerzon.github.io/vaultwarden
-  - name: nextcloud
-    url: https://nextcloud.github.io/helm/
   - name: open-webui
     url: https://helm.openwebui.com
   - name: glance-k8s
@@ -25,9 +23,7 @@ releases:
     version: 0.1.1
     values:
       - values/coredns/base.yaml
-      {{- if isFile "values/coredns/override.yaml" }}
       - values/coredns/override.yaml
-      {{- end }}
   
   - name: vaultwarden
     createNamespace: true
@@ -37,21 +33,17 @@ releases:
     values:
       - values/common/storage-longhorn.yaml
       - values/vaultwarden/base.yaml
-      {{- if isFile "values/vaultwarden/override.yaml" }}
       - values/vaultwarden/override.yaml
-      {{- end }}
 
   - name: open-webui
     createNamespace: true
     namespace: open-webui
     chart: open-webui/open-webui
-    version: 8.14.0
+    version: 8.11.0
     values:
       - values/common/storage-longhorn.yaml
       - values/open-webui/base.yaml
-      {{- if isFile "values/open-webui/override.yaml" }}
       - values/open-webui/override.yaml
-      {{- end }}
 
   - name: glance
     createNamespace: true
@@ -60,38 +52,18 @@ releases:
     version: 0.1.21
     values:
       - values/glance/base.yaml
-      {{- if isFile "values/glance/override.yaml" }}
       - values/glance/override.yaml
-      {{- end }}
     set:
-      {{- if isFile "values/glance/proxmox-widget.yaml" }}
       - name: config.files.proxmox-widget
         value: {{ readFile "values/glance/proxmox-widget.yaml" | quote }}
-      {{- end }}
-      {{- if isFile "values/glance/my-style.css" }}
       - name: assets.files.my-style
         value: {{ readFile "values/glance/my-style.css" | quote }}
-      {{- end }}
 
   - name: glance-k8s
     createNamespace: false
     namespace: glance
     chart: oci://ghcr.io/lukasdietrich/glance-k8s/chart/glance-k8s
-    version: "v0.4.1"
+    version: "v0.4.0"
     values:
       - values/glance-k8s/base.yaml
-      {{- if isFile "values/glance-k8s/override.yaml" }}
       - values/glance-k8s/override.yaml
-      {{- end }}
-
-  - name: nextcloud
-    createNamespace: true
-    namespace: nextcloud
-    chart: nextcloud/nextcloud
-    version: 8.5.10
-    values:
-      - values/common/storage-longhorn.yaml
-      - values/nextcloud/base.yaml
-      {{- if isFile "values/nextcloud/override.yaml" }}
-      - values/nextcloud/override.yaml
-      {{- end }}
